@@ -1,12 +1,12 @@
 <template lang="html">
 
   <div class="container" id="cssi">
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" v-for="article in Articles">
       <div class="panel-heading">
-        <h3 class="panel-title">Panel primary</h3>
+        <h3 class="panel-title">{{article.title}}</h3>
       </div>
       <div class="panel-body">
-        Panel content
+        {{article.content}}
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@ export default {
       'getallArticles'
     ])
   },
-  creatad () {
+  created () {
     this.getallArticles()
   }
 }

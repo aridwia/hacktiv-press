@@ -9,7 +9,7 @@ const http = axios.create({
 vue.use(vuex)
 
 const state = {
-  Articles = []
+  Articles: []
 }
 
 const mutations = {
@@ -19,12 +19,12 @@ const mutations = {
   }
 }
 
-const action = {
+const actions = {
   getallArticles ({commit}) {
     http.get('/articles')
-    .then(({allArticles}) => {
-      console.log('ini all article', allArticles)
-      commit('setarticles', allArticles)
+    .then(allArticles => {
+      console.log('ini all article', allArticles.data)
+      commit('setarticles', allArticles.data)
     })
     .catch(err => {
       console.log(err)
@@ -32,10 +32,10 @@ const action = {
   }
 }
 
-const store = new Vuex.Store({
+const store = new vuex.Store({
   state,
   mutations,
-  action
+  actions
 })
 
 export default store
