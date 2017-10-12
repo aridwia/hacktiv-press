@@ -15,7 +15,7 @@ var createArticle = (req,res) => {
     title: req.body.title,
     content: req.body.content,
     category: req.body.category,
-    author: req.body.author
+    author: req.id
   })
   .then(newArticle => {
     res.send(newArticle)
@@ -26,14 +26,25 @@ var createArticle = (req,res) => {
 }
 
 var updateArticle = (req,res) => {
-  Articles.updateOne({_id: req.params.id},{
-    title: req.body.title,
-    content: req.body.content,
-    category: req.body.category,
-    author: req.body.author
-  })
-  .then(updatedArticle => {
-    res.send(updatedArticle)
+  Articles.findOne({_id: req.params.id})
+  .then(oneArticle => {
+    console.log('masuk sini');
+    if(oneArticle.author == req.id){
+      Articles.updateOne({_id: req.params.id},{
+        title: req.body.title,
+        content: req.body.content,
+        category: req.body.category,
+        author: req.body.author
+      })
+      .then(updatedArticle => {
+        res.send(updatedArticle)
+      })
+      .catch(err => {
+        res.send(err)
+      })
+    } else {
+      res.send('anda tidak punya hak')
+    }
   })
   .catch(err => {
     res.send(err)
