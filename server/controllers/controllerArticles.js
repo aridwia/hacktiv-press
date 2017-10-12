@@ -52,9 +52,19 @@ var updateArticle = (req,res) => {
 }
 
 var removeArticle = (req,res) => {
-  Articles.deleteOne({_id: req.params.id})
-  .then(deletedArticle => {
-    res.send(deletedArticle)
+  Articles.findOne({_id: req.params.id})
+  .then(oneArticle => {
+    if(oneArticle.author == req.id){
+      Articles.deleteOne({_id: req.params.id})
+      .then(deletedArticle => {
+        res.send(deletedArticle)
+      })
+      .catch(err => {
+        res.send(err)
+      })
+    } else {
+      res.send('anda tidak punya hak')
+    }
   })
   .catch(err => {
     res.send(err)
