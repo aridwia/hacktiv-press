@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <Navbar/>
-    <h1>Wellcome</h1>
+    <h1>HacktivPress</h1>
     <Contentisi/>
   </div>
 </template>

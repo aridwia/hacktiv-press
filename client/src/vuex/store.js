@@ -29,6 +29,15 @@ const actions = {
     .catch(err => {
       console.log(err)
     })
+  },
+  removeArticle ({commit}, id) {
+    http.get('/articles/' + id)
+    .then(deletedArticle => {
+      commit('setdeletedarticle', id)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 }
 

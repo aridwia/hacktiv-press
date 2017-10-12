@@ -4,11 +4,12 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Every body can be writer</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <form class="navbar-form navbar-left" role="search">
+            <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#addartikel">Add artikel</button>
             <div class="form-group">
               <input class="form-control" placeholder="Search" type="text">
             </div>
