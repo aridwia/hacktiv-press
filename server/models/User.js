@@ -17,9 +17,9 @@ const userSchema = new Schema({
   fullname:{
     type: String,
     required: [true, 'fullname harus di isi']
-  },{
-    timestamps: true
   }
+},{
+  timestamps: true
 })
 
 const User = mongoose.model('User', userSchema)

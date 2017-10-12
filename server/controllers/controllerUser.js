@@ -15,10 +15,10 @@ var getallUser = (req,res) => {
 var createUser = (req,res) => {
   let hash = bcrypt.hashSync(req.body.password,salt)
   User.create({
-    username: req.body.username
-    password: hash
-    email: req.body.email
-    fullname: req.body.fullname
+    username: req.body.username,
+    password: hash,
+    email: req.body.email,
+    fullname: req.body.fullname,
   })
   .then(newUser => {
     res.send(newUser)
@@ -31,10 +31,10 @@ var createUser = (req,res) => {
 var updateUser = (req,res) => {
   let hash = bcrypt.hashSync(req.body.password,salt)
   User.updateone({_id: req.params.id},{
-    username: req.body.username
-    password: hash
-    email: req.body.email
-    fullname: req.body.fullname
+    username: req.body.username,
+    password: hash,
+    email: req.body.email,
+    fullname: req.body.fullname,
   })
   .then(updateUser => {
     res.send(updateUser)
