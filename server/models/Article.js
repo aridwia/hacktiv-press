@@ -10,12 +10,12 @@ const Articleschema = new Schema ({
     type: String,
     required: [true, 'title harus di isi']
   },
-  caegory: {
+  category: {
     type: String,
     required: [true, 'title harus di isi']
   },
   author: {
-    type: String,
+    type: Schema.Types.ObjectId, ref: 'User',
     required: [true, 'title harus di isi']
   }
 },{
